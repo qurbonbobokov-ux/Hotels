@@ -10,3 +10,4 @@
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Domain/obj/Debug/net10.0/refint/TajikistanHotels.Domain.dll
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Domain/obj/Debug/net10.0/TajikistanHotels.Domain.pdb
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Domain/obj/Debug/net10.0/ref/TajikistanHotels.Domain.dll
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Domain/obj/Debug/net10.0/TajikistanHotels.Domain.sourcelink.json

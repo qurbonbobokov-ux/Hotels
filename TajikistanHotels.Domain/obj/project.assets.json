@@ -859,19 +859,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "/Users/user/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Hotels\\TajikistanHotels.Domain\\TajikistanHotels.Domain.csproj",
+      "projectUniqueName": "/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Domain/TajikistanHotels.Domain.csproj",
       "projectName": "TajikistanHotels.Domain",
-      "projectPath": "C:\\Users\\Admin\\Hotels\\TajikistanHotels.Domain\\TajikistanHotels.Domain.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Hotels\\TajikistanHotels.Domain\\obj\\",
+      "projectPath": "/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Domain/TajikistanHotels.Domain.csproj",
+      "packagesPath": "/Users/user/.nuget/packages/",
+      "outputPath": "/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/user/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -922,7 +922,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.103/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

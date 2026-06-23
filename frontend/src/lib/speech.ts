@@ -7,6 +7,50 @@ export interface SpeechOptions {
     volume?: number
 }
 
+interface SpeechRecognitionResultItem {
+    transcript: string
+}
+
+interface SpeechRecognitionResult {
+    readonly isFinal: boolean
+    readonly 0: SpeechRecognitionResultItem
+}
+
+interface SpeechRecognitionResultList {
+    readonly length: number
+    readonly [index: number]: SpeechRecognitionResult
+}
+
+interface SpeechRecognitionEvent {
+    readonly resultIndex: number
+    readonly results: SpeechRecognitionResultList
+    readonly error?: string
+}
+
+interface SpeechRecognitionInterface {
+    lang: string
+    continuous: boolean
+    interimResults: boolean
+    onstart: (() => void) | null
+    onresult: ((event: SpeechRecognitionEvent) => void) | null
+    onerror: ((event: SpeechRecognitionEvent) => void) | null
+    onend: (() => void) | null
+    start(): void
+    stop?(): void
+    abort?(): void
+}
+
+interface SpeechRecognitionConstructor {
+    new(): SpeechRecognitionInterface
+}
+
+declare global {
+    interface Window {
+        webkitSpeechRecognition?: SpeechRecognitionConstructor
+        SpeechRecognition?: SpeechRecognitionConstructor
+    }
+}
+
 const synth = window.speechSynthesis
 const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition
 
@@ -80,7 +124,7 @@ export function startListening(options?: {
             interimTranscript = ''
         }
 
-        recognition.onresult = (event) => {
+        recognition.onresult = (event: SpeechRecognitionEvent) => {
             let finalTranscript = ''
 
             for (let i = event.resultIndex; i < event.results.length; i++) {
@@ -102,7 +146,7 @@ export function startListening(options?: {
             }
         }
 
-        recognition.onerror = (event) => {
+        recognition.onerror = (event: SpeechRecognitionEvent) => {
             const errorMessage = event.error || 'Unknown error'
             if (options?.onError) {
                 options.onError(errorMessage)

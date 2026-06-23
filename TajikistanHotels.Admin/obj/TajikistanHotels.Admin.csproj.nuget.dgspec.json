@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Admin\\Hotels\\TajikistanHotels.Admin\\TajikistanHotels.Admin.csproj": {}
+    "/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/TajikistanHotels.Admin.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Admin\\Hotels\\TajikistanHotels.Admin\\TajikistanHotels.Admin.csproj": {
+    "/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/TajikistanHotels.Admin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Admin\\Hotels\\TajikistanHotels.Admin\\TajikistanHotels.Admin.csproj",
+        "projectUniqueName": "/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/TajikistanHotels.Admin.csproj",
         "projectName": "TajikistanHotels.Admin",
-        "projectPath": "c:\\Users\\Admin\\Hotels\\TajikistanHotels.Admin\\TajikistanHotels.Admin.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Admin\\Hotels\\TajikistanHotels.Admin\\obj\\",
+        "projectPath": "/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/TajikistanHotels.Admin.csproj",
+        "packagesPath": "/Users/user/.nuget/packages/",
+        "outputPath": "/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/user/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -47,7 +47,7 @@
             "Microsoft.AspNetCore.App.Internal.Assets": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.1, )",
+              "version": "[10.0.3, )",
               "autoReferenced": true
             },
             "Microsoft.AspNetCore.Components.WebAssembly": {
@@ -61,19 +61,19 @@
             },
             "Microsoft.DotNet.HotReload.WebAssembly.Browser": {
               "target": "Package",
-              "version": "[10.0.101, )",
+              "version": "[10.0.103, )",
               "autoReferenced": true
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.1, )",
+              "version": "[10.0.3, )",
               "autoReferenced": true
             },
             "Microsoft.NET.Sdk.WebAssembly.Pack": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.1, )",
+              "version": "[10.0.3, )",
               "autoReferenced": true
             }
           },
@@ -91,7 +91,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[10.0.1, 10.0.1]"
+              "version": "[10.0.3, 10.0.3]"
             }
           ],
           "frameworkReferences": {
@@ -99,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.103/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
