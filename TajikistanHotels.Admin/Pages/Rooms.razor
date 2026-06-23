@@ -1,0 +1,194 @@
+@page "/rooms"
+@inject ApiClient Api
+@inject NavigationManager Nav
+
+<PageTitle>Rooms — Admin</PageTitle>
+
+<h1 class="mb-4">Rooms</h1>
+
+@if (_hotels is null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <label class="form-label">Select hotel</label>
+            <select class="form-select" @onchange="OnHotelChanged">
+                <option value="">-- choose a hotel --</option>
+                @foreach (var h in _hotels)
+                {
+                    <option value="@h.Id" selected="@(h.Id == _hotelId)">@h.Name (@h.City)</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    @if (_hotelId is not null)
+    {
+        @if (!string.IsNullOrEmpty(_message))
+        {
+            <div class="alert alert-info py-2">@_message</div>
+        }
+
+        <div class="d-flex justify-content-end mb-2">
+            <button class="btn btn-primary" @onclick="() => OpenForm(null)">+ Add Room</button>
+        </div>
+
+        @if (_editing is not null)
+        {
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@(_editId is null ? "Add Room" : "Edit Room")</h5>
+                    <EditForm Model="_editing" OnValidSubmit="Save">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Type</label>
+                                <InputText class="form-control" @bind-Value="_editing.Type" />
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Capacity</label>
+                                <InputNumber class="form-control" @bind-Value="_editing.Capacity" />
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Count</label>
+                                <InputNumber class="form-control" @bind-Value="_editing.Count" />
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Available</label>
+                                <InputNumber class="form-control" @bind-Value="_editing.AvailableCount" />
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Price</label>
+                                <InputNumber class="form-control" @bind-Value="_editing.Price" />
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Description</label>
+                                <InputText class="form-control" @bind-Value="_editing.Description" />
+                            </div>
+                        </div>
+                        <div class="mt-3 d-flex gap-2">
+                            <button class="btn btn-primary" type="submit" disabled="@_busy">Save</button>
+                            <button class="btn btn-outline-secondary" type="button" @onclick="() => _editing = null">Cancel</button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        }
+
+        @if (_rooms is null)
+        {
+            <p>Loading rooms...</p>
+        }
+        else if (_rooms.Count == 0)
+        {
+            <p class="text-muted">No rooms for this hotel yet.</p>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-hover align-middle bg-white shadow-sm">
+                    <thead class="table-light">
+                        <tr><th>Type</th><th>Capacity</th><th>Count</th><th>Available</th><th>Price</th><th class="text-end">Actions</th></tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var r in _rooms)
+                        {
+                            <tr>
+                                <td>@r.Type</td>
+                                <td>@r.Capacity</td>
+                                <td>@r.Count</td>
+                                <td>@r.AvailableCount</td>
+                                <td>$@r.Price</td>
+                                <td class="text-end">
+                                    <button class="btn btn-sm btn-outline-primary me-1" @onclick="() => OpenForm(r)">Edit</button>
+                                    <button class="btn btn-sm btn-outline-danger" @onclick="() => Delete(r)">Delete</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    }
+}
+
+@code {
+    private List<HotelModel>? _hotels;
+    private List<RoomModel>? _rooms;
+    private Guid? _hotelId;
+    private RoomModel? _editing;
+    private Guid? _editId;
+    private bool _busy;
+    private string? _message;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Api.InitializeAsync();
+        if (!Api.IsAuthenticated) { Nav.NavigateTo("/login"); return; }
+        _hotels = await Api.GetHotelsAsync();
+    }
+
+    private async Task OnHotelChanged(ChangeEventArgs e)
+    {
+        _editing = null;
+        _message = null;
+        _rooms = null;
+        if (Guid.TryParse(e.Value?.ToString(), out var id))
+        {
+            _hotelId = id;
+            _rooms = await Api.GetRoomsAsync(id);
+        }
+        else
+        {
+            _hotelId = null;
+        }
+    }
+
+    private void OpenForm(RoomModel? r)
+    {
+        _message = null;
+        if (r is null)
+        {
+            _editId = null;
+            _editing = new RoomModel { HotelId = _hotelId!.Value, Capacity = 2, Count = 1, AvailableCount = 1 };
+        }
+        else
+        {
+            _editId = r.Id;
+            _editing = new RoomModel
+            {
+                Id = r.Id, HotelId = r.HotelId, Type = r.Type, Capacity = r.Capacity,
+                Count = r.Count, AvailableCount = r.AvailableCount, Price = r.Price, Description = r.Description
+            };
+        }
+    }
+
+    private async Task Save()
+    {
+        _busy = true;
+        var resp = _editId is null
+            ? await Api.CreateRoomAsync(_editing!)
+            : await Api.UpdateRoomAsync(_editId.Value, _editing!);
+        _busy = false;
+
+        if (resp.IsSuccessStatusCode)
+        {
+            _editing = null;
+            _message = _editId is null ? "Room created." : "Room updated.";
+            _rooms = await Api.GetRoomsAsync(_hotelId!.Value);
+        }
+        else
+        {
+            _message = $"Save failed ({(int)resp.StatusCode}).";
+        }
+    }
+
+    private async Task Delete(RoomModel r)
+    {
+        var resp = await Api.DeleteRoomAsync(r.Id);
+        _message = resp.IsSuccessStatusCode ? "Room deleted." : "Delete failed (room may have bookings).";
+        _rooms = await Api.GetRoomsAsync(_hotelId!.Value);
+    }
+}
