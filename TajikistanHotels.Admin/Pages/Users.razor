@@ -1,0 +1,67 @@
+@page "/users"
+@inject ApiClient Api
+@inject NavigationManager Nav
+
+<PageTitle>Users — Admin</PageTitle>
+
+<h1 class="mb-4">Users</h1>
+
+@if (!string.IsNullOrEmpty(_message))
+{
+    <div class="alert alert-info py-2">@_message</div>
+}
+
+@if (_users is null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-hover align-middle bg-white shadow-sm">
+            <thead class="table-light">
+                <tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th><th class="text-end">Actions</th></tr>
+            </thead>
+            <tbody>
+                @foreach (var u in _users)
+                {
+                    <tr>
+                        <td>@u.FullName</td>
+                        <td>@u.Email</td>
+                        <td>
+                            <span class="badge @(u.Role == "Admin" ? "bg-danger" : "bg-secondary")">@u.Role</span>
+                        </td>
+                        <td>@u.CreatedAt.ToString("yyyy-MM-dd")</td>
+                        <td class="text-end">
+                            @if (u.Role != "Admin")
+                            {
+                                <button class="btn btn-sm btn-outline-danger" @onclick="() => Delete(u)">Delete</button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@code {
+    private List<UserModel>? _users;
+    private string? _message;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Api.InitializeAsync();
+        if (!Api.IsAuthenticated) { Nav.NavigateTo("/login"); return; }
+        await Load();
+    }
+
+    private async Task Load() => _users = await Api.GetUsersAsync();
+
+    private async Task Delete(UserModel u)
+    {
+        var resp = await Api.DeleteUserAsync(u.Id);
+        _message = resp.IsSuccessStatusCode ? "User deleted." : "Delete failed.";
+        await Load();
+    }
+}

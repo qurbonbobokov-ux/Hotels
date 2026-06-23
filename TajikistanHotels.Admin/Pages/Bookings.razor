@@ -1,0 +1,55 @@
+@page "/bookings"
+@inject ApiClient Api
+@inject NavigationManager Nav
+
+<PageTitle>Bookings — Admin</PageTitle>
+
+<h1 class="mb-4">Bookings</h1>
+
+@if (_bookings is null)
+{
+    <p>Loading...</p>
+}
+else if (_bookings.Count == 0)
+{
+    <p class="text-muted">No bookings yet.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-hover align-middle bg-white shadow-sm">
+            <thead class="table-light">
+                <tr>
+                    <th>Hotel</th><th>Guest</th><th>Email</th><th>Check-in</th><th>Check-out</th>
+                    <th>Guests</th><th>Total</th><th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var b in _bookings)
+                {
+                    <tr>
+                        <td>@b.HotelName</td>
+                        <td>@b.GuestName</td>
+                        <td>@b.GuestEmail</td>
+                        <td>@b.CheckInDate.ToString("yyyy-MM-dd")</td>
+                        <td>@b.CheckOutDate.ToString("yyyy-MM-dd")</td>
+                        <td>@b.GuestCount</td>
+                        <td>$@b.TotalPrice</td>
+                        <td><span class="badge bg-secondary">@b.Status</span></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@code {
+    private List<BookingModel>? _bookings;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Api.InitializeAsync();
+        if (!Api.IsAuthenticated) { Nav.NavigateTo("/login"); return; }
+        _bookings = await Api.GetBookingsAsync();
+    }
+}
