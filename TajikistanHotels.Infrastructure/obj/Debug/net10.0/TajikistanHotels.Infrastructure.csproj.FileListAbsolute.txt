@@ -1,0 +1,17 @@
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/bin/Debug/net10.0/TajikistanHotels.Infrastructure.deps.json
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/bin/Debug/net10.0/TajikistanHotels.Infrastructure.dll
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/bin/Debug/net10.0/TajikistanHotels.Infrastructure.pdb
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/bin/Debug/net10.0/TajikistanHotels.Application.dll
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/bin/Debug/net10.0/TajikistanHotels.Domain.dll
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/bin/Debug/net10.0/TajikistanHotels.Application.pdb
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/bin/Debug/net10.0/TajikistanHotels.Domain.pdb
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/obj/Debug/net10.0/TajikistanHotels.Infrastructure.csproj.AssemblyReference.cache
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/obj/Debug/net10.0/TajikistanHotels.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/obj/Debug/net10.0/TajikistanHotels.Infrastructure.AssemblyInfoInputs.cache
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/obj/Debug/net10.0/TajikistanHotels.Infrastructure.AssemblyInfo.cs
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/obj/Debug/net10.0/TajikistanHotels.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/obj/Debug/net10.0/Tajikist.C7F54C26.Up2Date
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/obj/Debug/net10.0/TajikistanHotels.Infrastructure.dll
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/obj/Debug/net10.0/refint/TajikistanHotels.Infrastructure.dll
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/obj/Debug/net10.0/TajikistanHotels.Infrastructure.pdb
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Infrastructure/obj/Debug/net10.0/ref/TajikistanHotels.Infrastructure.dll

@@ -1,0 +1,15 @@
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/bin/Debug/net10.0/TajikistanHotels.Application.deps.json
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/bin/Debug/net10.0/TajikistanHotels.Application.dll
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/bin/Debug/net10.0/TajikistanHotels.Application.pdb
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/bin/Debug/net10.0/TajikistanHotels.Domain.dll
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/bin/Debug/net10.0/TajikistanHotels.Domain.pdb
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/obj/Debug/net10.0/TajikistanHotels.Application.csproj.AssemblyReference.cache
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/obj/Debug/net10.0/TajikistanHotels.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/obj/Debug/net10.0/TajikistanHotels.Application.AssemblyInfoInputs.cache
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/obj/Debug/net10.0/TajikistanHotels.Application.AssemblyInfo.cs
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/obj/Debug/net10.0/TajikistanHotels.Application.csproj.CoreCompileInputs.cache
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/obj/Debug/net10.0/Tajikist.5A881AF1.Up2Date
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/obj/Debug/net10.0/TajikistanHotels.Application.dll
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/obj/Debug/net10.0/refint/TajikistanHotels.Application.dll
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/obj/Debug/net10.0/TajikistanHotels.Application.pdb
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Application/obj/Debug/net10.0/ref/TajikistanHotels.Application.dll
