@@ -1,0 +1,61 @@
+@page "/login"
+@inject ApiClient Api
+@inject NavigationManager Nav
+
+<PageTitle>Login — Admin</PageTitle>
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-sm" style="width: 380px;">
+        <div class="card-body p-4">
+            <h3 class="text-center mb-1">🏨 Admin Panel</h3>
+            <p class="text-center text-muted mb-4">Sign in to manage the platform</p>
+
+            @if (!string.IsNullOrEmpty(_error))
+            {
+                <div class="alert alert-danger py-2">@_error</div>
+            }
+
+            <EditForm Model="this" OnValidSubmit="DoLogin">
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <InputText class="form-control" @bind-Value="_email" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <InputText type="password" class="form-control" @bind-Value="_password" />
+                </div>
+                <button class="btn btn-primary w-100" type="submit" disabled="@_busy">
+                    @(_busy ? "Signing in..." : "Sign In")
+                </button>
+            </EditForm>
+
+            <p class="text-muted small text-center mt-3 mb-0">
+                Default admin: admin@tajikistanhotels.tj / Admin@123
+            </p>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _email = "admin@tajikistanhotels.tj";
+    private string _password = "Admin@123";
+    private string? _error;
+    private bool _busy;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Api.InitializeAsync();
+        if (Api.IsAuthenticated)
+            Nav.NavigateTo("/");
+    }
+
+    private async Task DoLogin()
+    {
+        _busy = true;
+        _error = null;
+        _error = await Api.LoginAsync(_email, _password);
+        _busy = false;
+        if (_error is null)
+            Nav.NavigateTo("/");
+    }
+}

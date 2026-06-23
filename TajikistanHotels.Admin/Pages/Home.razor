@@ -1,0 +1,68 @@
+@page "/"
+@inject ApiClient Api
+@inject NavigationManager Nav
+
+<PageTitle>Dashboard — Admin</PageTitle>
+
+<h1 class="mb-4">Dashboard</h1>
+
+@if (_loading)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div class="row g-3">
+        <div class="col-md-4">
+            <div class="card text-bg-primary shadow-sm">
+                <div class="card-body">
+                    <h6 class="card-title">Hotels</h6>
+                    <p class="display-6 mb-0">@_hotels</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-bg-success shadow-sm">
+                <div class="card-body">
+                    <h6 class="card-title">Bookings</h6>
+                    <p class="display-6 mb-0">@_bookings</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-bg-secondary shadow-sm">
+                <div class="card-body">
+                    <h6 class="card-title">Users</h6>
+                    <p class="display-6 mb-0">@_users</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 d-flex gap-2 flex-wrap">
+        <a href="hotels" class="btn btn-outline-primary">Manage Hotels</a>
+        <a href="rooms" class="btn btn-outline-primary">Manage Rooms</a>
+        <a href="bookings" class="btn btn-outline-secondary">View Bookings</a>
+        <a href="users" class="btn btn-outline-secondary">View Users</a>
+    </div>
+}
+
+@code {
+    private bool _loading = true;
+    private int _hotels, _bookings, _users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Api.InitializeAsync();
+        if (!Api.IsAuthenticated) { Nav.NavigateTo("/login"); return; }
+
+        try
+        {
+            _hotels = (await Api.GetHotelsAsync())?.Count ?? 0;
+            _bookings = (await Api.GetBookingsAsync())?.Count ?? 0;
+            _users = (await Api.GetUsersAsync())?.Count ?? 0;
+        }
+        catch { /* token may be expired */ }
+        _loading = false;
+    }
+}
