@@ -57,3 +57,4 @@
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.API/obj/Debug/net10.0/TajikistanHotels.API.pdb
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.API/obj/Debug/net10.0/TajikistanHotels.API.genruntimeconfig.cache
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.API/obj/Debug/net10.0/ref/TajikistanHotels.API.dll
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.API/obj/Debug/net10.0/TajikistanHotels.API.sourcelink.json
