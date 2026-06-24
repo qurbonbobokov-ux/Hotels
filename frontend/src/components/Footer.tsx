@@ -37,7 +37,7 @@ export default function Footer() {
                 </a>
               </div>
               <div className="flex items-center gap-2 mt-2 text-xs text-slate-500">
-                <Phone size={14} /> +992 (37) 221-23-45
+                <Phone size={14} /> +992 (50) 101-12-77
               </div>
               <div className="flex items-center gap-2 mt-2 text-xs text-slate-500">
                 <MapPin size={14} /> Rudaki Avenue, Dushanbe
@@ -76,9 +76,9 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+992372212345" className="flex items-center gap-2 text-slate-400 text-sm hover:text-indigo-300 transition-colors">
+                  <a href="tel:+99250101277" className="flex items-center gap-2 text-slate-400 text-sm hover:text-indigo-300 transition-colors">
                     <Phone size={14} className="text-indigo-400 shrink-0" />
-                    +992 (37) 221-23-45
+                    +992 (50) 101-12-77
                   </a>
                 </li>
                 <li className="flex items-start gap-2 text-slate-400 text-sm">
