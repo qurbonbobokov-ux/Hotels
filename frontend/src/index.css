@@ -71,8 +71,9 @@ html.light {
 
 @layer components {
   .container-app { @apply max-w-7xl mx-auto px-4 sm:px-6; }
-  .page-shell { @apply max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10; }
-  .narrow-shell { @apply max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-10; }
+  .page-shell { @apply max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12; }
+  .page-content { @apply max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16; }
+  .narrow-shell { @apply max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12; }
   .auth-shell { @apply min-h-[78vh] flex items-center justify-center px-4 py-12; }
   .font-display { font-family: "Playfair Display", Georgia, "Times New Roman", serif; }
 
@@ -92,7 +93,7 @@ html.light {
   .page-heading { @apply text-3xl sm:text-4xl font-bold; }
 
   .page-title-row {
-    @apply flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6;
+    @apply flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-7;
   }
 
   .page-eyebrow {
@@ -234,6 +235,10 @@ html.light {
   }
 
   .panel { @apply p-5 sm:p-6; }
+  .content-stack { @apply grid gap-10 sm:gap-14; }
+  .card-grid-3 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6; }
+  .card-grid-4 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6; }
+
   .panel-quiet {
     @apply rounded-lg border p-5 sm:p-6;
     background: var(--surface-2);
@@ -349,7 +354,7 @@ html.light {
   @keyframes page-spin { to { transform: rotate(360deg); } }
 
   .page-header {
-    @apply text-white py-12 sm:py-14;
+    @apply text-white py-14 sm:py-16;
     background:
       linear-gradient(120deg, rgba(9, 24, 22, 0.96), rgba(10, 96, 89, 0.82)),
       linear-gradient(45deg, rgba(217, 164, 65, 0.14), transparent);
@@ -376,10 +381,10 @@ html.light {
 
   .home-hero {
     position: relative;
-    min-height: 780px;
+    min-height: 760px;
     display: flex;
     align-items: center;
-    padding: 80px 0 74px;
+    padding: 88px 0 80px;
     isolation: isolate;
   }
 
@@ -404,8 +409,8 @@ html.light {
 
   .home-hero .container-app {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(360px, 430px);
-    gap: 58px;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 440px);
+    gap: clamp(2rem, 5vw, 4.75rem);
     align-items: center;
   }
 
@@ -462,8 +467,8 @@ html.light {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     max-width: 570px;
-    gap: 12px;
-    margin-top: 38px;
+    gap: 14px;
+    margin-top: 42px;
   }
 
   .hero-proof-item {
@@ -545,15 +550,15 @@ html.light {
 
   .home-search {
     display: grid;
-    gap: 12px;
-    padding: 18px;
+    gap: 14px;
+    padding: 20px;
     background: var(--surface-solid);
   }
 
   .home-search-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 14px;
   }
 
   .home-search-field {
@@ -622,12 +627,12 @@ html.light {
   }
 
   .home-section {
-    padding: 88px 0 0;
+    padding: 96px 0 0;
   }
 
   .home-section-muted {
-    margin-top: 80px;
-    padding: 88px 0;
+    margin-top: 88px;
+    padding: 96px 0;
     background: color-mix(in srgb, var(--surface-2) 62%, transparent);
     border-block: 1px solid var(--border);
   }
@@ -636,8 +641,8 @@ html.light {
     display: flex;
     align-items: end;
     justify-content: space-between;
-    gap: 28px;
-    margin-bottom: 28px;
+    gap: 32px;
+    margin-bottom: 34px;
   }
 
   .section-heading-copy {
@@ -657,7 +662,7 @@ html.light {
   .destination-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
+    gap: 20px;
   }
 
   .destination-card,
@@ -741,7 +746,7 @@ html.light {
   .featured-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
+    gap: 22px;
   }
 
   .featured-card {
@@ -780,8 +785,8 @@ html.light {
   .trust-panel {
     display: grid;
     grid-template-columns: 0.8fr 2fr;
-    gap: 40px;
-    padding: 36px;
+    gap: 44px;
+    padding: 40px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -794,11 +799,11 @@ html.light {
   .trust-features {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
+    gap: 18px;
   }
 
   .trust-feature {
-    padding: 20px;
+    padding: 22px;
     background: var(--surface-2);
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -832,9 +837,9 @@ html.light {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 28px;
-    margin: 88px 0 0;
-    padding: 36px;
+    gap: 36px;
+    margin: 96px 0 0;
+    padding: 40px;
     color: white;
     background:
       linear-gradient(110deg, rgba(7, 34, 31, 0.96), rgba(10, 111, 102, 0.82)),
@@ -1135,12 +1140,12 @@ html.light {
   @media (max-width: 1023px) {
     .home-hero {
       min-height: auto;
-      padding: 68px 0;
+      padding: 72px 0;
     }
 
     .home-hero .container-app {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 36px;
     }
 
     .home-hero-copy,
@@ -1153,8 +1158,13 @@ html.light {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .destination-card {
+      min-height: 300px;
+    }
+
     .trust-panel {
       grid-template-columns: 1fr;
+      gap: 30px;
     }
 
     .admin-stats,
@@ -1171,7 +1181,7 @@ html.light {
     .nav-link::after { display: none; }
 
     .home-hero {
-      padding: 46px 0 56px;
+      padding: 52px 0 60px;
     }
 
     .home-hero-overlay {
@@ -1209,7 +1219,8 @@ html.light {
     .hero-proof {
       grid-template-columns: 1fr;
       max-width: 21rem;
-      margin-top: 28px;
+      margin-top: 30px;
+      gap: 10px;
     }
 
     .hero-proof-item {
@@ -1236,20 +1247,22 @@ html.light {
 
     .home-section,
     .home-section-muted {
-      padding-top: 66px;
+      padding-top: 72px;
     }
 
     .home-section-muted {
-      margin-top: 66px;
-      padding-bottom: 66px;
+      margin-top: 72px;
+      padding-bottom: 72px;
     }
 
     .section-heading {
-      display: block;
+      display: grid;
+      gap: 12px;
+      margin-bottom: 24px;
     }
 
     .section-heading-copy {
-      margin-top: 12px;
+      margin-top: 0;
     }
 
     .destination-grid,
@@ -1270,11 +1283,13 @@ html.light {
     }
 
     .home-cta {
-      display: block;
+      display: grid;
+      gap: 22px;
+      margin-top: 72px;
     }
 
     .home-cta .hero-secondary-button {
-      margin-top: 22px;
+      width: 100%;
     }
 
     .admin-hero-inner,

@@ -34,7 +34,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="page-content grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
         {/* Contact details */}
         <div className="space-y-4">
           {contacts.map((c) => (
