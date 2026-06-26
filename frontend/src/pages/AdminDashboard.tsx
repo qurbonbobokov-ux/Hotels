@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { Building2, CalendarCheck, Users, DollarSign, ImagePlus, Loader2 } from 'lucide-react'
+import { Building2, CalendarCheck, Users, DollarSign, ImagePlus, Loader2, X, MapPin, Star, UploadCloud } from 'lucide-react'
 import { hotelsApi, adminApi, uploadApi, type AdminBooking } from '../services/api'
 import { useAuthStore } from '../stores/authStore'
 import { useNavigate } from 'react-router-dom'
@@ -127,41 +127,48 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-transparent">
-      <div className="page-header">
-        <div className="page-header-inner flex items-center justify-between">
+    <div className="admin-page">
+      <div className="admin-hero">
+        <div className="container-app admin-hero-inner">
           <div>
-            <h1 className="text-3xl font-bold">{t('admin.title')}</h1>
-            <p className="text-emerald-50 mt-1">{t('admin.subtitle')}</p>
+            <p className="page-eyebrow">{t('nav.admin')}</p>
+            <h1>{t('admin.title')}</h1>
+            <p>{t('admin.subtitle')}</p>
           </div>
-          <button onClick={() => setShowForm(!showForm)} className="btn-secondary">
+          <button onClick={() => setShowForm(!showForm)} className={showForm ? 'btn-secondary' : 'btn-primary'}>
+            {showForm && <X size={17} />}
             {showForm ? t('common.cancel') : t('admin.addHotel')}
           </button>
         </div>
       </div>
 
       <div className="page-shell">
-        {/* Analytics */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <section className="admin-stats">
           {stats.map((s) => (
-            <div key={s.label} className="panel">
-              <span className="icon-tile w-10 h-10 mb-3">
+            <article key={s.label} className="admin-stat-card">
+              <span className="icon-tile w-10 h-10">
                 <s.icon size={18} />
               </span>
-              <p className="text-2xl font-bold text-app">{s.value}</p>
-              <p className="text-subtle text-sm">{s.label}</p>
-            </div>
+              <div>
+                <p>{s.value}</p>
+                <span>{s.label}</span>
+              </div>
+            </article>
           ))}
-        </div>
+        </section>
 
-        {/* Add Hotel Form */}
         {showForm && (
-          <div className="panel mb-8">
-            <h2 className="section-title mb-6">{t('admin.addNewHotel')}</h2>
+          <section className="admin-form-panel">
+            <div className="admin-section-head">
+              <div>
+                <p className="page-eyebrow">{t('admin.addHotel')}</p>
+                <h2 className="section-title">{t('admin.addNewHotel')}</h2>
+              </div>
+            </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
+            <form onSubmit={handleSubmit} className="admin-form-grid">
+              <div className="admin-form-fields">
+                <div className="admin-field">
                   <label className="label">{t('admin.hotelName')}</label>
                   <input
                     type="text"
@@ -173,7 +180,7 @@ export default function AdminDashboard() {
                   />
                 </div>
 
-                <div>
+                <div className="admin-field">
                   <label className="label">{t('admin.city')}</label>
                   <input
                     type="text"
@@ -185,7 +192,7 @@ export default function AdminDashboard() {
                   />
                 </div>
 
-                <div>
+                <div className="admin-field">
                   <label className="label">{t('admin.address')}</label>
                   <input
                     type="text"
@@ -197,7 +204,7 @@ export default function AdminDashboard() {
                   />
                 </div>
 
-                <div>
+                <div className="admin-field">
                   <label className="label">{t('admin.pricePerNight')}</label>
                   <input
                     type="number"
@@ -209,7 +216,7 @@ export default function AdminDashboard() {
                   />
                 </div>
 
-                <div>
+                <div className="admin-field">
                   <label className="label">{t('common.phone')}</label>
                   <input
                     type="tel"
@@ -221,7 +228,7 @@ export default function AdminDashboard() {
                   />
                 </div>
 
-                <div>
+                <div className="admin-field">
                   <label className="label">{t('common.email')}</label>
                   <input
                     type="email"
@@ -233,7 +240,7 @@ export default function AdminDashboard() {
                   />
                 </div>
 
-                <div className="md:col-span-2">
+                <div className="admin-field admin-field-wide">
                   <label className="label">{t('admin.description')}</label>
                   <textarea
                     value={formData.description}
@@ -244,59 +251,59 @@ export default function AdminDashboard() {
                     placeholder={t('admin.descriptionPlaceholder')}
                   />
                 </div>
-
-                {/* Hotel image */}
-                <div className="md:col-span-2">
-                  <label className="label">{t('admin.hotelImage')}</label>
-                  <div className="flex items-center gap-4">
-                    <div className="w-28 h-20 rounded-xl overflow-hidden border border-app surface-2 shrink-0 grid place-items-center">
-                      {formData.imageUrl ? (
-                        <img src={formData.imageUrl} alt="Preview" className="w-full h-full object-cover" />
-                      ) : (
-                        <ImagePlus size={22} className="text-subtle" />
-                      )}
-                    </div>
-                    <div>
-                      <label className="btn-secondary cursor-pointer">
-                        {uploading ? <Loader2 size={16} className="animate-spin" /> : <ImagePlus size={16} />}
-                        {uploading ? t('admin.uploading') : t('admin.uploadImage')}
-                        <input type="file" accept="image/*" onChange={handleImage} className="hidden" disabled={uploading} />
-                      </label>
-                      <p className="text-subtle text-xs mt-2">{t('admin.imageHint')}</p>
-                    </div>
-                  </div>
-                </div>
               </div>
 
-              <button type="submit" disabled={createHotelMutation.isPending || uploading} className="btn-primary btn-block">
-                {createHotelMutation.isPending ? t('admin.creating') : t('admin.createHotel')}
-              </button>
+              <aside className="admin-upload-panel">
+                <label className="label">{t('admin.hotelImage')}</label>
+                <div className="admin-image-preview">
+                  {formData.imageUrl ? (
+                    <img src={formData.imageUrl} alt="Preview" />
+                  ) : (
+                    <div>
+                      <ImagePlus size={28} />
+                      <span>{t('admin.hotelImage')}</span>
+                    </div>
+                  )}
+                </div>
+                <label className="btn-secondary cursor-pointer admin-upload-button">
+                  {uploading ? <Loader2 size={16} className="animate-spin" /> : <UploadCloud size={16} />}
+                  {uploading ? t('admin.uploading') : t('admin.uploadImage')}
+                  <input type="file" accept="image/*" onChange={handleImage} className="hidden" disabled={uploading} />
+                </label>
+                <p>{t('admin.imageHint')}</p>
+                <button type="submit" disabled={createHotelMutation.isPending || uploading} className="btn-primary btn-block">
+                  {createHotelMutation.isPending ? t('admin.creating') : t('admin.createHotel')}
+                </button>
+              </aside>
             </form>
-          </div>
+          </section>
         )}
 
-        {/* Hotels List */}
-        <div>
-          <h2 className="section-title mb-6">{t('admin.allHotels')}</h2>
+        <section className="admin-hotels-section">
+          <div className="admin-section-head">
+            <div>
+              <p className="page-eyebrow">{t('admin.statHotels')}</p>
+              <h2 className="section-title">{t('admin.allHotels')}</h2>
+            </div>
+            <span className="badge-gray">{hotels?.data?.length ?? 0}</span>
+          </div>
 
           {hotels?.data && hotels.data.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="admin-hotels-grid">
               {hotels.data.map((hotel: Hotel) => (
-                <div key={hotel.id} className="hotel-card">
-                  {/* Image with overlay upload button */}
-                  <div className="relative group/img h-40">
+                <article key={hotel.id} className="admin-hotel-card">
+                  <div className="admin-hotel-media group/img">
                     <img
                       src={hotelImage(hotel.images?.[0], hotel.id)}
                       alt={hotel.name}
-                      className="w-full h-full object-cover"
                     />
-                    <label className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-slate-950/60 opacity-0 group-hover/img:opacity-100 transition cursor-pointer">
+                    <label className="admin-photo-overlay">
                       {uploadingId === hotel.id ? (
                         <Loader2 size={24} className="text-white animate-spin" />
                       ) : (
                         <>
                           <ImagePlus size={24} className="text-white" />
-                          <span className="text-white text-xs font-semibold">{t('admin.addPhoto')}</span>
+                          <span>{t('admin.addPhoto')}</span>
                         </>
                       )}
                       <input
@@ -308,24 +315,26 @@ export default function AdminDashboard() {
                       />
                     </label>
                   </div>
-                  <div className="card-body">
-                    <div className="flex items-start justify-between gap-2 mb-1">
-                      <h3 className="text-lg font-bold text-app">{hotel.name}</h3>
-                      <span className="badge-gray shrink-0">⭐ {hotel.rating}</span>
+                  <div className="admin-hotel-body">
+                    <div className="admin-hotel-title-row">
+                      <h3>{hotel.name}</h3>
+                      <span className="badge-amber"><Star size={12} className="fill-current" /> {hotel.rating}</span>
                     </div>
-                    <p className="text-subtle text-sm mb-2">{hotel.city} • {hotel.address}</p>
-                    <p className="text-muted text-sm line-clamp-2 mb-4">{hotel.description}</p>
-                    <p className="price text-xl">
+                    <p className="admin-hotel-location"><MapPin size={14} /> {hotel.city} · {hotel.address}</p>
+                    <p className="admin-hotel-description">{hotel.description}</p>
+                    <p className="price admin-hotel-price">
                       ${hotel.price} <span className="text-subtle font-normal text-sm">{t('common.perNight')}</span>
                     </p>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           ) : (
-            <p className="text-subtle text-center py-12">{t('admin.noHotels')}</p>
+            <div className="empty-state">
+              <p className="text-subtle">{t('admin.noHotels')}</p>
+            </div>
           )}
-        </div>
+        </section>
       </div>
     </div>
   )

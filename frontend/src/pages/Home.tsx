@@ -8,7 +8,6 @@ import {
   Building2,
   Calendar,
   CalendarCheck,
-  Compass,
   Headset,
   MapPin,
   Search as SearchIcon,
@@ -30,22 +29,22 @@ const DESTINATIONS = [
   {
     city: 'Dushanbe',
     key: 'dushanbe',
-    image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=900&q=82',
+    image: tajikistanHero,
   },
   {
     city: 'Pamir',
     key: 'pamir',
-    image: 'https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=900&q=82',
+    image: tajikistanHero,
   },
   {
     city: 'Khujand',
     key: 'khujand',
-    image: 'https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=900&q=82',
+    image: tajikistanHero,
   },
   {
     city: 'Penjikent',
     key: 'penjikent',
-    image: 'https://images.unsplash.com/photo-1533130061792-64b345e4a833?auto=format&fit=crop&w=900&q=82',
+    image: tajikistanHero,
   },
 ]
 
@@ -81,120 +80,107 @@ export default function Home() {
         <div className="home-hero-overlay" />
 
         <div className="container-app relative z-10">
-          <div className="home-hero-grid">
-            <div className="home-hero-copy">
-              <div className="hero-kicker">
-                <Compass size={16} />
-                <span>{t('home.eyebrow')}</span>
-              </div>
-              <h1 className="hero-title text-white">
-                {t('home.heroTitlePre')}{' '}
-                <span className="hero-country">{t('home.country')}</span>
-              </h1>
-              <p className="home-hero-subtitle">{t('home.heroSubtitle')}</p>
+          <div className="home-hero-copy">
+            <div className="hero-kicker">{t('home.eyebrow')}</div>
+            <h1 className="hero-title text-white">
+              {t('home.heroTitlePre')}{' '}
+              <span className="hero-country">{t('home.country')}</span>
+            </h1>
+            <p className="home-hero-subtitle">{t('home.heroSubtitle')}</p>
 
-              <div className="flex flex-wrap gap-3">
-                <button onClick={() => navigate('/search')} className="btn-primary">
-                  {t('home.exploreStays')} <ArrowRight size={17} />
-                </button>
-                <button onClick={() => navigate('/assistant')} className="hero-secondary-button">
-                  <Sparkles size={17} /> {t('home.planWithAi')}
-                </button>
-              </div>
-
-              <div className="hero-proof">
-                {[
-                  { icon: Building2, value: '500+', label: t('about.statHotels') },
-                  { icon: Users, value: '50k+', label: t('about.statGuests') },
-                  { icon: Star, value: '4.8', label: t('home.averageRating') },
-                ].map((item) => (
-                  <div key={item.label} className="hero-proof-item">
-                    <item.icon size={17} />
-                    <div>
-                      <strong>{item.value}</strong>
-                      <span>{item.label}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="home-hero-actions">
+              <button onClick={() => navigate('/search')} className="btn-primary">
+                {t('home.exploreStays')} <ArrowRight size={17} />
+              </button>
+              <button onClick={() => navigate('/assistant')} className="btn-secondary hero-ai-button">
+                <Sparkles size={17} /> {t('home.planWithAi')}
+              </button>
             </div>
 
-            <aside className="hero-feature-card">
-              <div className="hero-feature-image">
-                <img
-                  src={tajikistanHero}
-                  alt={t('home.pamirEscape')}
-                />
-                <span className="hero-feature-badge">
-                  <Sparkles size={13} /> {t('home.featuredJourney')}
-                </span>
-              </div>
-              <div className="hero-feature-content">
-                <div>
-                  <p className="hero-feature-location"><MapPin size={13} /> GBAO, Tajikistan</p>
-                  <h2>{t('home.pamirEscape')}</h2>
+            <div className="hero-proof">
+              {[
+                { icon: Building2, value: '500+', label: t('about.statHotels') },
+                { icon: Users, value: '50k+', label: t('about.statGuests') },
+                { icon: Star, value: '4.8', label: t('home.averageRating') },
+              ].map((item) => (
+                <div key={item.label} className="hero-proof-item">
+                  <item.icon size={17} />
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
                 </div>
-                <Link to="/tours" className="hero-feature-link" aria-label={t('home.discoverJourney')}>
-                  <ArrowRight size={18} />
-                </Link>
-              </div>
-            </aside>
+              ))}
+            </div>
           </div>
 
-          <form onSubmit={submitSearch} className="home-search">
-            <div className="home-search-field home-search-destination">
-              <span className="home-search-icon"><MapPin size={19} /></span>
-              <label>
-                <span>{t('home.destination')}</span>
-                <input
-                  type="text"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                  placeholder={t('home.destinationPlaceholder')}
-                />
-              </label>
+          <div className="hero-booking-card">
+            <div className="hero-booking-summary">
+              <span className="badge-amber"><Sparkles size={12} /> {t('home.featuredJourney')}</span>
+              <div>
+                <p><MapPin size={13} /> GBAO, Tajikistan</p>
+                <h2>{t('home.pamirEscape')}</h2>
+              </div>
+              <Link to="/tours" className="hero-booking-link" aria-label={t('home.discoverJourney')}>
+                {t('home.discover')} <ArrowRight size={16} />
+              </Link>
             </div>
 
-            <div className="home-search-field">
-              <span className="home-search-icon"><Calendar size={19} /></span>
-              <label>
-                <span>{t('home.checkIn')}</span>
-                <input
-                  type="date"
-                  min={today}
-                  value={checkIn}
-                  onChange={(e) => setCheckIn(e.target.value)}
-                />
-              </label>
-            </div>
+            <form onSubmit={submitSearch} className="home-search">
+              <div className="home-search-field home-search-destination">
+                <span className="home-search-icon"><MapPin size={19} /></span>
+                <div>
+                  <label>{t('home.destination')}</label>
+                  <input
+                    type="text"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    placeholder={t('home.destinationPlaceholder')}
+                  />
+                </div>
+              </div>
 
-            <div className="home-search-field">
-              <span className="home-search-icon"><CalendarCheck size={19} /></span>
-              <label>
-                <span>{t('home.checkOut')}</span>
-                <input
-                  type="date"
-                  min={checkIn || today}
-                  value={checkOut}
-                  onChange={(e) => setCheckOut(e.target.value)}
-                />
-              </label>
-            </div>
+              <div className="home-search-row">
+                <div className="home-search-field">
+                  <span className="home-search-icon"><Calendar size={19} /></span>
+                  <div>
+                    <label>{t('home.checkIn')}</label>
+                    <input
+                      type="date"
+                      min={today}
+                      value={checkIn}
+                      onChange={(e) => setCheckIn(e.target.value)}
+                    />
+                  </div>
+                </div>
 
-            <div className="home-search-field">
-              <span className="home-search-icon"><BedDouble size={19} /></span>
-              <label>
-                <span>{t('home.guests')}</span>
-                <select value={guests} onChange={(e) => setGuests(Number(e.target.value))}>
-                  {[1, 2, 3, 4, 5, 6].map((n) => <option key={n} value={n}>{n}</option>)}
-                </select>
-              </label>
-            </div>
+                <div className="home-search-field">
+                  <span className="home-search-icon"><CalendarCheck size={19} /></span>
+                  <div>
+                    <label>{t('home.checkOut')}</label>
+                    <input
+                      type="date"
+                      min={checkIn || today}
+                      value={checkOut}
+                      onChange={(e) => setCheckOut(e.target.value)}
+                    />
+                  </div>
+                </div>
+              </div>
 
-            <button type="submit" className="home-search-button">
-              <SearchIcon size={18} /> <span>{t('common.search')}</span>
-            </button>
-          </form>
+              <div className="home-search-field">
+                <span className="home-search-icon"><BedDouble size={19} /></span>
+                <div>
+                  <label>{t('home.guests')}</label>
+                  <select value={guests} onChange={(e) => setGuests(Number(e.target.value))}>
+                    {[1, 2, 3, 4, 5, 6].map((n) => <option key={n} value={n}>{n}</option>)}
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" className="home-search-button">
+                <SearchIcon size={18} /> <span>{t('common.search')}</span>
+              </button>
+            </form>
+          </div>
         </div>
       </section>
 
