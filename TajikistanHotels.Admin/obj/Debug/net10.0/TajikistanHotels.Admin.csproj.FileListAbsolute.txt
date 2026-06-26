@@ -1332,9 +1332,6 @@
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/mscorlib.k0eqaq9do2.wasm
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/netstandard.xl4f7m8snf.wasm
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/System.Private.CoreLib.mwo4f5vsvi.wasm
-/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/TajikistanHotels.Admin.1my4okltd9.wasm
-/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/TajikistanHotels.Admin.q09w52zns5.pdb
-/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/dotnet.qdzss8m31j.js
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/blazor.webassembly.66stpp682q.js.gz
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/Microsoft.AspNetCore.Authorization.3ur142rhlk.wasm.gz
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/Microsoft.AspNetCore.Components.ld1j2d23tn.wasm.gz
@@ -1543,9 +1540,6 @@
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/icudt_CJK.tjcz0u77k5.dat.gz
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/icudt_EFIGS.tptq2av103.dat.gz
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/icudt_no_CJK.lfu7j35m59.dat.gz
-/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/TajikistanHotels.Admin.1my4okltd9.wasm.gz
-/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/TajikistanHotels.Admin.q09w52zns5.pdb.gz
-/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/dotnet.qdzss8m31j.js.gz
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/TajikistanHotels.Admin.staticwebassets.runtime.json
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/TajikistanHotels.Admin.staticwebassets.endpoints.json
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/TajikistanHotels.Admin.dll
@@ -2235,10 +2229,6 @@
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/compressed/9an4tvhifi-{0}-tjcz0u77k5-tjcz0u77k5.gz
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/compressed/lr9tuyyrey-{0}-tptq2av103-tptq2av103.gz
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/compressed/xc4k0fgncc-{0}-lfu7j35m59-lfu7j35m59.gz
-/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/compressed/50yvj7pwg9-{0}-1my4okltd9-1my4okltd9.gz
-/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/compressed/0n5qq0h4rx-{0}-q09w52zns5-q09w52zns5.gz
-/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/compressed/jm3zhzfms5-{0}-qdzss8m31j-qdzss8m31j.gz
-/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/compressed/giybj44rnv-{0}-zwq16l7get-zwq16l7get.gz
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/staticwebassets.build.json
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/staticwebassets.build.json.cache
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/staticwebassets.development.json
@@ -2249,3 +2239,13 @@
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/refint/TajikistanHotels.Admin.dll
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/TajikistanHotels.Admin.pdb
 /Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/ref/TajikistanHotels.Admin.dll
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/TajikistanHotels.Admin.q9yhwkebny.wasm
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/TajikistanHotels.Admin.dmqna71zq4.pdb
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/dotnet.8sq1a73boz.js
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/TajikistanHotels.Admin.q9yhwkebny.wasm.gz
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/TajikistanHotels.Admin.dmqna71zq4.pdb.gz
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/bin/Debug/net10.0/wwwroot/_framework/dotnet.8sq1a73boz.js.gz
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/compressed/50yvj7pwg9-{0}-q9yhwkebny-q9yhwkebny.gz
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/compressed/0n5qq0h4rx-{0}-dmqna71zq4-dmqna71zq4.gz
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/compressed/jm3zhzfms5-{0}-8sq1a73boz-8sq1a73boz.gz
+/Users/user/Desktop/DOTNET/Final/GroupB/TajikistanHotels.Admin/obj/Debug/net10.0/compressed/giybj44rnv-{0}-zykprq6xrz-zykprq6xrz.gz

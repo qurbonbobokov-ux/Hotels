@@ -5,7 +5,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
   "mainAssemblyName": "TajikistanHotels.Admin",
   "applicationEnvironment": "Development",
   "resources": {
-    "hash": "sha256-+QYXxo104yrz7Ntj56LQd/+j27o3VT8jxg9bFrkS84g=",
+    "hash": "sha256-BnoxZf58HHQI86PCvr2pXu3a/kYHTjH6aqDW3CXoveo=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.69poregybn.js"
@@ -1242,16 +1242,16 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
       },
       {
         "virtualPath": "TajikistanHotels.Admin.wasm",
-        "name": "TajikistanHotels.Admin.1my4okltd9.wasm",
-        "integrity": "sha256-x//lKvn3A2DY5e67Lb6Z4K+vNpM+WxfWI3Fwh9kQ24I=",
+        "name": "TajikistanHotels.Admin.q9yhwkebny.wasm",
+        "integrity": "sha256-Qqjr+iTDKRW4jLZ+Kti09zFqPeL8m5YIqfXxW6jZm1s=",
         "cache": "force-cache"
       }
     ],
     "pdb": [
       {
         "virtualPath": "TajikistanHotels.Admin.pdb",
-        "name": "TajikistanHotels.Admin.q09w52zns5.pdb",
-        "integrity": "sha256-Vq2sFLMkC4qf8hP5XWMHg/qWEFiLWfilojwAC7AcSX4=",
+        "name": "TajikistanHotels.Admin.dmqna71zq4.pdb",
+        "integrity": "sha256-hXw3ikSjQrwULgZX5mlYs82iJd8yqJlOEf5YFlbcdZY=",
         "cache": "force-cache"
       }
     ],
