@@ -18,7 +18,7 @@ export default function ForgotPassword() {
       <div className="w-full max-w-md">
         <div className="card card-body p-8!">
           <div className="text-center mb-6">
-            <span className="grid place-items-center w-12 h-12 mx-auto rounded-2xl bg-linear-to-br from-indigo-500 to-cyan-500 text-white mb-3">
+            <span className="icon-tile w-12 h-12 mx-auto text-white mb-3" style={{ background: 'linear-gradient(135deg, var(--accent-strong), var(--brand))' }}>
               <Mail size={22} />
             </span>
             <h1 className="font-display text-2xl font-bold text-app">{t('forgot.title')}</h1>

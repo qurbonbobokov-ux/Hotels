@@ -70,7 +70,7 @@ export default function Tours() {
       <section className="page-header">
         <div className="page-header-inner text-center">
           <h1 className="font-display text-4xl font-bold mb-3">{t('tours.title')}</h1>
-          <p className="text-indigo-100 max-w-2xl mx-auto">
+          <p className="text-emerald-50 max-w-2xl mx-auto">
             {t('tours.subtitle')}
           </p>
         </div>

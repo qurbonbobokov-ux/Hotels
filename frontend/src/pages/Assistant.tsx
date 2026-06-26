@@ -84,7 +84,7 @@ export default function Assistant() {
   return (
     <div className="max-w-3xl mx-auto px-6 py-8">
       <div className="flex items-center gap-3 mb-6">
-        <span className="grid place-items-center w-11 h-11 rounded-xl bg-linear-to-br from-indigo-500 to-cyan-500 text-white">
+        <span className="icon-tile w-11 h-11 text-white" style={{ background: 'linear-gradient(135deg, var(--accent-strong), var(--brand))' }}>
           <Sparkles size={20} />
         </span>
         <div>
@@ -98,15 +98,19 @@ export default function Assistant() {
           {messages.map((m, i) => (
             <div key={i} className={m.role === 'user' ? 'text-right' : ''}>
               <div className={`inline-flex items-end gap-2 ${m.role === 'user' ? 'flex-row-reverse' : ''}`}>
-                <div className={`inline-block max-w-[85%] px-4 py-2.5 rounded-2xl whitespace-pre-line ${m.role === 'user' ? 'bg-linear-to-r from-indigo-500 to-violet-600 text-white' : 'surface-2 text-app'
-                  }`}>
+                <div
+                  className={`inline-block max-w-[85%] px-4 py-2.5 rounded-lg whitespace-pre-line ${m.role === 'user' ? 'text-white' : 'surface-2 text-app'
+                    }`}
+                  style={m.role === 'user' ? { background: 'linear-gradient(135deg, var(--accent-strong), var(--brand))' } : undefined}
+                >
                   {m.text}
                 </div>
                 {m.role === 'assistant' && isSpeechSynthesisSupported() && (
                   <button
                     onClick={() => handleSpeak(m.text, i)}
-                    className={`p-2 rounded-full transition ${speaking === i ? 'bg-indigo-500 text-white' : 'hover:bg-surface-1'
+                    className={`p-2 rounded-lg transition ${speaking === i ? 'text-white' : 'hover:surface-2'
                       }`}
+                    style={speaking === i ? { background: 'var(--accent-strong)' } : undefined}
                     title="Listen"
                   >
                     <Volume2 size={16} />
@@ -132,7 +136,7 @@ export default function Assistant() {
               )}
             </div>
           ))}
-          {loading && <div className="surface-2 text-subtle inline-block px-4 py-2.5 rounded-2xl">{t('assistant.thinking')}</div>}
+          {loading && <div className="surface-2 text-subtle inline-block px-4 py-2.5 rounded-lg">{t('assistant.thinking')}</div>}
           <div ref={endRef} />
         </div>
 

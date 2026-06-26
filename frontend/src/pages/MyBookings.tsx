@@ -64,12 +64,12 @@ export default function MyBookings() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="page-shell">
         {isLoading && <div className="text-center py-12 text-muted">{t('common.loading')}</div>}
         {error && <div className="text-center py-12 text-rose-400">{t('myBookings.loadError')}</div>}
 
         {!isLoading && !error && bookings.length === 0 && (
-          <div className="text-center py-16">
+          <div className="empty-state">
             <p className="text-lg text-muted mb-4">{t('myBookings.empty')}</p>
             <Link to="/search" className="btn-primary">
               {t('myBookings.findHotel')}
@@ -82,7 +82,7 @@ export default function MyBookings() {
             {bookings.map((b: MyBooking) => {
               const cancelled = b.status.toLowerCase() === 'cancelled'
               return (
-                <div key={b.id} className="card card-body flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div key={b.id} className="list-row flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div>
                     <div className="flex items-center gap-3 mb-2">
                       <Link to={`/hotel/${b.hotelId}`} className="text-xl font-bold text-app hover:text-accent">
@@ -97,7 +97,7 @@ export default function MyBookings() {
 
                   <div className="flex items-center gap-6">
                     <div className="text-right">
-                      <p className="text-2xl font-bold text-accent">${b.totalPrice}</p>
+                      <p className="price text-2xl">${b.totalPrice}</p>
                       <p className="text-subtle text-sm">{t('common.total')}</p>
                     </div>
                     {!cancelled && (

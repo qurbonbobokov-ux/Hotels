@@ -90,7 +90,8 @@ export default function ChatWidget() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={t('chat.openAria')}
-        className="fixed bottom-5 right-5 z-50 grid place-items-center w-14 h-14 rounded-full text-white shadow-xl shadow-indigo-900/40 bg-linear-to-br from-indigo-500 to-cyan-500 hover:scale-105 transition"
+        className="fixed bottom-5 right-5 z-50 grid place-items-center w-14 h-14 rounded-full text-white shadow-xl hover:scale-105 transition"
+        style={{ background: 'linear-gradient(135deg, var(--accent-strong), var(--brand))' }}
       >
         {open ? <X size={24} /> : <MessageCircle size={24} />}
       </button>
@@ -99,7 +100,7 @@ export default function ChatWidget() {
       {open && (
         <div className="fixed bottom-24 right-5 z-50 w-[calc(100vw-2.5rem)] sm:w-96 max-h-[70vh] flex flex-col card overflow-hidden">
           {/* Header */}
-          <div className="flex items-center gap-2 p-4 bg-linear-to-r from-indigo-600 to-cyan-600 text-white">
+          <div className="flex items-center gap-2 p-4 text-white" style={{ background: 'linear-gradient(135deg, var(--accent-strong), var(--brand))' }}>
             <Sparkles size={18} />
             <div className="grow">
               <p className="font-bold leading-none">{t('chat.title')}</p>
@@ -113,15 +114,19 @@ export default function ChatWidget() {
             {messages.map((m, i) => (
               <div key={i} className={m.role === 'user' ? 'text-right' : ''}>
                 <div className={`inline-flex items-end gap-2 ${m.role === 'user' ? 'flex-row-reverse' : ''}`}>
-                  <div className={`inline-block max-w-[85%] px-3 py-2 rounded-2xl text-sm whitespace-pre-line ${m.role === 'user' ? 'bg-linear-to-r from-indigo-500 to-violet-600 text-white' : 'surface-2 text-app'
-                    }`}>
+                  <div
+                    className={`inline-block max-w-[85%] px-3 py-2 rounded-lg text-sm whitespace-pre-line ${m.role === 'user' ? 'text-white' : 'surface-2 text-app'
+                      }`}
+                    style={m.role === 'user' ? { background: 'linear-gradient(135deg, var(--accent-strong), var(--brand))' } : undefined}
+                  >
                     {m.text}
                   </div>
                   {m.role === 'assistant' && isSpeechSynthesisSupported() && (
                     <button
                       onClick={() => handleSpeak(m.text, i)}
-                      className={`p-1.5 rounded-full transition ${speaking === i ? 'bg-indigo-500 text-white' : 'hover:bg-surface-1'
+                      className={`p-1.5 rounded-lg transition ${speaking === i ? 'text-white' : 'hover:surface-2'
                         }`}
+                      style={speaking === i ? { background: 'var(--accent-strong)' } : undefined}
                       title="Listen"
                     >
                       <Volume2 size={14} />
@@ -147,7 +152,7 @@ export default function ChatWidget() {
                 )}
               </div>
             ))}
-            {loading && <div className="surface-2 text-subtle inline-block px-3 py-2 rounded-2xl text-sm">{t('assistant.thinking')}</div>}
+            {loading && <div className="surface-2 text-subtle inline-block px-3 py-2 rounded-lg text-sm">{t('assistant.thinking')}</div>}
             <div ref={endRef} />
           </div>
 

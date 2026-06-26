@@ -30,14 +30,19 @@ export default function MyReviews() {
   const reviews = data?.data ?? []
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-8">
-      <h1 className="font-display text-3xl font-bold text-app mb-6">{t('myReviews.title')}</h1>
+    <div className="narrow-shell">
+      <div className="page-title-row">
+        <div>
+          <p className="page-eyebrow">{t('profile.linkReviewsLabel')}</p>
+          <h1 className="page-heading">{t('myReviews.title')}</h1>
+        </div>
+      </div>
 
       {isLoading && <div className="text-center py-12 text-subtle">{t('common.loading')}</div>}
       {error && <div className="text-center py-12 text-rose-400">{t('myReviews.loadError')}</div>}
 
       {!isLoading && reviews.length === 0 && (
-        <div className="card card-body text-center py-12">
+        <div className="empty-state">
           <p className="text-muted mb-4">{t('myReviews.empty')}</p>
           <Link to="/search" className="btn-primary">{t('myReviews.findHotel')}</Link>
         </div>
@@ -45,7 +50,7 @@ export default function MyReviews() {
 
       <div className="space-y-4">
         {reviews.map((r: MyReview) => (
-          <div key={r.id} className="card card-body">
+          <div key={r.id} className="list-row">
             <div className="flex items-start justify-between gap-2 mb-2">
               <Link to={`/hotel/${r.hotelId}`} className="font-bold text-app hover:text-accent">{r.hotelName}</Link>
               <span className="badge-amber"><Star size={12} className="fill-current" /> {r.rating}</span>

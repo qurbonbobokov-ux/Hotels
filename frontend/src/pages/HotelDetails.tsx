@@ -119,13 +119,13 @@ export default function HotelDetails() {
 
       {/* Gallery */}
       <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-3 mb-8">
-        <img src={gallery[activeImg]} alt={h.name} className="w-full h-72 md:h-105 object-cover rounded-2xl" />
+        <img src={gallery[activeImg]} alt={h.name} className="w-full h-72 md:h-105 object-cover rounded-lg" />
         <div className="grid grid-cols-4 lg:grid-cols-2 gap-3">
           {gallery.slice(0, 4).map((src, i) => (
             <button
               key={i}
               onClick={() => setActiveImg(i)}
-              className={`overflow-hidden rounded-xl border-2 transition ${activeImg === i ? 'border-indigo-500' : 'border-transparent'}`}
+              className={`overflow-hidden rounded-lg border-2 transition ${activeImg === i ? 'border-teal-500' : 'border-transparent'}`}
             >
               <img src={src} alt="" className="w-full h-20 lg:h-25 object-cover hover:scale-105 transition" />
             </button>
@@ -143,7 +143,7 @@ export default function HotelDetails() {
                 key={t.id}
                 onClick={() => setTab(t.id)}
                 className={`px-4 py-3 font-semibold whitespace-nowrap border-b-2 -mb-px transition ${
-                  tab === t.id ? 'border-indigo-500 text-app' : 'border-transparent text-muted hover:text-app'
+                  tab === t.id ? 'border-teal-500 text-app' : 'border-transparent text-muted hover:text-app'
                 }`}
               >
                 {t.label}

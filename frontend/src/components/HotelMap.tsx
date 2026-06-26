@@ -4,8 +4,8 @@ import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import type { Coords } from '../lib/geo'
 
-// Custom SVG pin — avoids Vite/Leaflet default-icon asset resolution issue.
-function makePin(color = '#6366f1') {
+// Custom SVG pin avoids Vite/Leaflet default-icon asset resolution issues.
+function makePin(color = '#0f766e') {
   return L.divIcon({
     html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36" width="28" height="42">
       <path fill="${color}" d="M12 0C7.13 0 3 4.13 3 9c0 7.2 9 21 9 27 0-6 9-19.8 9-27C21 4.13 16.87 0 12 0z"/>
@@ -29,8 +29,8 @@ interface Props {
 }
 
 export default function HotelMap({ center, zoom = 14, hotelName, address, userCoords, userLabel }: Props) {
-  const hotelIcon = useMemo(() => makePin('#6366f1'), [])
-  const userIcon = useMemo(() => makePin('#10b981'), [])
+  const hotelIcon = useMemo(() => makePin('#0f766e'), [])
+  const userIcon = useMemo(() => makePin('#d6a648'), [])
 
   return (
     <MapContainer

@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-6">
       <div className="text-center">
-        <span className="grid place-items-center w-16 h-16 mx-auto rounded-2xl bg-linear-to-br from-indigo-500 to-cyan-500 text-white mb-6">
+        <span className="icon-tile w-16 h-16 mx-auto text-white mb-6" style={{ background: 'linear-gradient(135deg, var(--accent-strong), var(--brand))' }}>
           <Compass size={28} />
         </span>
         <p className="font-display text-6xl font-bold gradient-text mb-2">404</p>

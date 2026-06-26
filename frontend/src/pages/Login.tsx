@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
+import { Hotel } from 'lucide-react'
 import { authApi } from '../services/api'
 import { useAuthStore } from '../stores/authStore'
 
@@ -37,13 +38,15 @@ export default function Login() {
       <div className="w-full max-w-md">
         <div className="card card-body p-8!">
           <div className="text-center mb-8">
-            <div className="text-4xl mb-3">🏨</div>
+            <span className="icon-tile w-12 h-12 mx-auto text-white mb-3" style={{ background: 'linear-gradient(135deg, var(--accent-strong), var(--brand))' }}>
+              <Hotel size={22} />
+            </span>
             <h1 className="text-2xl font-bold text-app mb-1">{t('login.welcome')}</h1>
             <p className="text-muted">{t('login.subtitle')}</p>
           </div>
 
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded">
+            <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-lg">
               <p className="text-red-700 text-sm font-semibold">{error}</p>
             </div>
           )}

@@ -45,11 +45,16 @@ export default function Settings() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-8">
-      <h1 className="font-display text-3xl font-bold text-app mb-6">{t('settings.title')}</h1>
+    <div className="narrow-shell">
+      <div className="page-title-row">
+        <div>
+          <p className="page-eyebrow">{t('nav.profile')}</p>
+          <h1 className="page-heading">{t('settings.title')}</h1>
+        </div>
+      </div>
 
       {/* Account */}
-      <div className="card card-body mb-6">
+      <div className="panel mb-6">
         <h2 className="flex items-center gap-2 font-bold text-app mb-4"><User size={18} className="text-accent" /> {t('settings.account')}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
@@ -68,7 +73,7 @@ export default function Settings() {
       </div>
 
       {/* Appearance */}
-      <div className="card card-body mb-6">
+      <div className="panel mb-6">
         <h2 className="font-bold text-app mb-4">{t('settings.appearance')}</h2>
         <div className="flex items-center justify-between">
           <div>
@@ -82,7 +87,7 @@ export default function Settings() {
       </div>
 
       {/* Password */}
-      <div className="card card-body">
+      <div className="panel">
         <h2 className="flex items-center gap-2 font-bold text-app mb-4"><KeyRound size={18} className="text-accent" /> {t('settings.changePassword')}</h2>
         <form onSubmit={submitPw} className="space-y-4">
           <div>

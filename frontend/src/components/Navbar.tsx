@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Hotel, CalendarCheck, Heart, LayoutDashboard, LogOut, Menu, X, Sun, Moon, Sparkles } from 'lucide-react'
+import { Hotel, CalendarCheck, Heart, LayoutDashboard, LogOut, Menu, X, Sun, Moon, Sparkles, UserRound } from 'lucide-react'
 import { useAuthStore } from '../stores/authStore'
 import { useThemeStore } from '../stores/themeStore'
 import LanguageSwitcher from './LanguageSwitcher'
@@ -37,8 +37,8 @@ export default function Navbar() {
   const isActive = (path: string) => location.pathname === path
 
   const navLinkClass = (path: string) =>
-    `flex items-center gap-1.5 font-medium transition-colors ${
-      isActive(path) ? 'text-accent' : 'text-muted hover:text-app'
+    `nav-link flex items-center gap-1.5 text-sm font-medium transition-colors whitespace-nowrap ${
+      isActive(path) ? 'nav-link-active' : ''
     }`
 
   const links = (
@@ -75,26 +75,26 @@ export default function Navbar() {
 
   return (
     <nav className="glass-nav sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-3.5 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
-          <span className="grid place-items-center w-9 h-9 rounded-xl bg-linear-to-br from-indigo-500 to-cyan-500 text-white shadow-lg shadow-indigo-900/40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+        <Link to="/" className="flex items-center gap-2.5 min-w-0" onClick={() => setMenuOpen(false)}>
+          <span className="icon-tile w-9 h-9 text-white" style={{ background: 'linear-gradient(135deg, var(--accent-strong), var(--brand))' }}>
             <Hotel size={18} />
           </span>
-          <span className="font-display text-xl font-bold text-app">Tajikistan<span className="gradient-text">Hotels</span></span>
+          <span className="font-display text-lg sm:text-xl font-bold text-app truncate">Tajikistan<span className="gradient-text">Hotels</span></span>
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex gap-7 items-center">
+        <div className="hidden lg:flex gap-5 xl:gap-6 items-center">
           {links}
           <LanguageSwitcher />
           <ThemeToggle />
           {user ? (
-            <div className="flex items-center gap-4 pl-5 border-l border-app">
+            <div className="flex items-center gap-3 pl-4 border-l border-app">
               <Link to="/profile" className={navLinkClass('/profile')}>
-                {user.name}
+                <UserRound size={16} /> {user.name}
               </Link>
-              <button onClick={handleLogout} className="btn-secondary px-4! py-2!">
-                <LogOut size={16} /> {t('common.logout')}
+              <button onClick={handleLogout} className="nav-icon-button" aria-label={t('common.logout')} title={t('common.logout')}>
+                <LogOut size={17} />
               </button>
             </div>
           ) : (
@@ -110,26 +110,27 @@ export default function Navbar() {
         </div>
 
         {/* Mobile controls */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-2">
           <LanguageSwitcher />
           <ThemeToggle />
           <button
-            className="text-app p-1"
+            className="nav-icon-button"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={t('nav.toggleMenu')}
+            aria-expanded={menuOpen}
           >
-            {menuOpen ? <X size={26} /> : <Menu size={26} />}
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-app px-6 py-4 flex flex-col gap-4">
-          {links}
+        <div className="lg:hidden mobile-nav-panel">
+          <div className="mobile-nav-links">{links}</div>
           {user && (
             <Link to="/profile" className={navLinkClass('/profile')} onClick={() => setMenuOpen(false)}>
-              {t('nav.profile')}
+              <UserRound size={16} /> {t('nav.profile')}
             </Link>
           )}
           {user ? (
@@ -137,7 +138,7 @@ export default function Navbar() {
               <LogOut size={16} /> {t('common.logout')} ({user.name})
             </button>
           ) : (
-            <div className="flex flex-col gap-3">
+            <div className="mobile-nav-actions">
               <Link to="/login" className={navLinkClass('/login')} onClick={() => setMenuOpen(false)}>
                 {t('common.login')}
               </Link>
