@@ -31,9 +31,9 @@ export default function About() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6 py-12">
+      <div className="page-content content-stack">
         {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
+        <div className="card-grid-4">
           {STATS.map((s) => (
             <div key={s.label} className="card card-body text-center">
               <p className="font-display text-3xl font-bold gradient-text">{s.value}</p>
@@ -43,7 +43,7 @@ export default function About() {
         </div>
 
         {/* Mission */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <img
             src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80"
             alt="Hotel lobby"
@@ -60,17 +60,19 @@ export default function About() {
         </div>
 
         {/* Values */}
-        <h2 className="section-title text-center mb-8">{t('about.whyChoose')}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {VALUES.map((v) => (
-            <div key={v.title} className="card card-body">
-              <span className="icon-tile w-11 h-11 mb-4">
-                <v.icon size={20} />
-              </span>
-              <h3 className="font-bold text-app mb-1">{v.title}</h3>
-              <p className="text-muted text-sm">{v.text}</p>
-            </div>
-          ))}
+        <div>
+          <h2 className="section-title text-center mb-8">{t('about.whyChoose')}</h2>
+          <div className="card-grid-4">
+            {VALUES.map((v) => (
+              <div key={v.title} className="card card-body">
+                <span className="icon-tile w-11 h-11 mb-4">
+                  <v.icon size={20} />
+                </span>
+                <h3 className="font-bold text-app mb-1">{v.title}</h3>
+                <p className="text-muted text-sm">{v.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

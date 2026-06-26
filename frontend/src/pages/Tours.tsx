@@ -76,8 +76,8 @@ export default function Tours() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="page-content">
+        <div className="card-grid-3">
           {TOURS.map((tour) => (
             <div key={tour.id} className="card card-hover overflow-hidden flex flex-col group">
               <div className="relative h-48 overflow-hidden">

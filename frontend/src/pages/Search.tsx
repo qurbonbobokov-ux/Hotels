@@ -88,8 +88,8 @@ export default function Search() {
       </div>
 
       {/* Filter + sort bar */}
-      <div className="panel mb-6">
-        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1.2fr_1fr_auto_auto] gap-4 items-end">
+      <div className="panel mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.4fr_1.15fr_1fr_auto_auto] gap-4 lg:gap-5 items-end">
           <div>
             <label className="label">{t('home.destination')}</label>
             <div className="relative">
@@ -147,7 +147,7 @@ export default function Search() {
       {error && <div className="text-center py-16 text-rose-400">{t('search.loadError')}</div>}
 
       {results.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="card-grid-3">
           {results.map((hotel: Hotel) => {
             const km = distanceKm(hotel)
             return (

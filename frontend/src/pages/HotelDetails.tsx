@@ -92,7 +92,7 @@ export default function HotelDetails() {
   ]
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-6">
+    <div className="page-shell">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-1 text-sm text-subtle mb-5">
         <Link to="/" className="hover:text-app">{t('nav.home')}</Link>
@@ -103,7 +103,7 @@ export default function HotelDetails() {
       </nav>
 
       {/* Title row */}
-      <div className="flex items-start justify-between gap-4 mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5 mb-6">
         <div>
           <h1 className="font-display text-3xl md:text-4xl font-bold text-app">{h.name}</h1>
           <div className="flex flex-wrap items-center gap-3 mt-2">
@@ -118,9 +118,9 @@ export default function HotelDetails() {
       </div>
 
       {/* Gallery */}
-      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-3 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 mb-10">
         <img src={gallery[activeImg]} alt={h.name} className="w-full h-72 md:h-105 object-cover rounded-lg" />
-        <div className="grid grid-cols-4 lg:grid-cols-2 gap-3">
+        <div className="grid grid-cols-4 lg:grid-cols-2 gap-3 sm:gap-4">
           {gallery.slice(0, 4).map((src, i) => (
             <button
               key={i}
@@ -134,7 +134,7 @@ export default function HotelDetails() {
       </div>
 
       {/* Content + sticky booking */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
         <div className="lg:col-span-2">
           {/* Tabs */}
           <div className="flex gap-1 border-b border-app mb-6 overflow-x-auto">
@@ -159,7 +159,7 @@ export default function HotelDetails() {
               </section>
               <section>
                 <h2 className="section-title text-2xl! mb-4">{t('hotel.amenities')}</h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                   {h.amenities?.map((a: string) => (
                     <div key={a} className="flex items-center gap-2 text-muted">
                       <Check size={16} className="text-emerald-400 shrink-0" /> {a}
@@ -173,7 +173,7 @@ export default function HotelDetails() {
           {tab === 'rooms' && (
             <div className="space-y-4">
               {h.rooms?.map((room: { id: string; type: string; capacity: number; price: number; available: boolean }) => (
-                <div key={room.id} className="card card-body flex items-center justify-between gap-4">
+                <div key={room.id} className="card card-body flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
                   <div>
                     <h3 className="font-bold text-lg text-app">{room.type}</h3>
                     <p className="text-subtle text-sm">{t('hotel.sleeps', { count: room.capacity })}</p>
