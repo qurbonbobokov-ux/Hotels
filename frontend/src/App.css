@@ -1,10 +1,2 @@
-/* App Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-}
+/* Global layout, theme, and component styles live in index.css.
+   Tailwind's preflight already provides the required browser reset. */

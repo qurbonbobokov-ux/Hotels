@@ -25,7 +25,7 @@ export default function About() {
       <section className="page-header">
         <div className="page-header-inner text-center">
           <h1 className="font-display text-4xl font-bold mb-3">{t('about.title')}</h1>
-          <p className="text-indigo-100 max-w-2xl mx-auto">
+          <p className="text-emerald-50 max-w-2xl mx-auto">
             {t('about.subtitle')}
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function About() {
           <img
             src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80"
             alt="Hotel lobby"
-            className="w-full h-72 object-cover rounded-2xl"
+            className="w-full h-72 object-cover rounded-lg"
           />
           <div>
             <p className="text-accent font-semibold mb-2">{t('about.ourMission')}</p>
@@ -64,7 +64,7 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {VALUES.map((v) => (
             <div key={v.title} className="card card-body">
-              <span className="grid place-items-center w-11 h-11 rounded-xl bg-linear-to-br from-indigo-500/20 to-cyan-500/20 text-accent mb-4">
+              <span className="icon-tile w-11 h-11 mb-4">
                 <v.icon size={20} />
               </span>
               <h3 className="font-bold text-app mb-1">{v.title}</h3>

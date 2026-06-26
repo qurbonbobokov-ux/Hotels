@@ -19,7 +19,7 @@ export default function Contact() {
 
   const contacts = [
     { icon: Mail, label: t('contact.email'), value: 'support@tajhotels.com', href: 'mailto:support@tajhotels.com' },
-    { icon: Phone, label: t('contact.phone'), value: '+992 (37) 221-23-45', href: 'tel:+992372212345' },
+    { icon: Phone, label: t('contact.phone'), value: '+992 (50) 101-12-77', href: 'tel:+992501011277' },
     { icon: MapPin, label: t('contact.office'), value: t('contact.officeValue'), href: undefined },
   ]
 
@@ -28,7 +28,7 @@ export default function Contact() {
       <section className="page-header">
         <div className="page-header-inner text-center">
           <h1 className="font-display text-4xl font-bold mb-3">{t('contact.title')}</h1>
-          <p className="text-indigo-100 max-w-xl mx-auto">
+          <p className="text-emerald-50 max-w-xl mx-auto">
             {t('contact.subtitle')}
           </p>
         </div>
@@ -39,7 +39,7 @@ export default function Contact() {
         <div className="space-y-4">
           {contacts.map((c) => (
             <div key={c.label} className="card card-body flex items-center gap-4">
-              <span className="grid place-items-center w-11 h-11 shrink-0 rounded-xl bg-linear-to-br from-indigo-500/20 to-cyan-500/20 text-accent">
+              <span className="icon-tile w-11 h-11">
                 <c.icon size={20} />
               </span>
               <div>

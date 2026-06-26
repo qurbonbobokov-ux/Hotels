@@ -69,7 +69,7 @@ export default function Search() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-6">
+    <div className="page-shell">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-1 text-sm text-subtle mb-4">
         <Link to="/" className="hover:text-app">{t('nav.home')}</Link>
@@ -77,10 +77,18 @@ export default function Search() {
         <span className="text-app">{t('nav.hotels')}</span>
       </nav>
 
-      <h1 className="font-display text-3xl font-bold text-app mb-5">{t('search.title')}</h1>
+      <div className="page-title-row">
+        <div>
+          <p className="page-eyebrow">{t('nav.hotels')}</p>
+          <h1 className="page-heading">{t('search.title')}</h1>
+        </div>
+        {!isLoading && !error && (
+          <p className="badge-gray">{t('search.found', { count: results.length })}</p>
+        )}
+      </div>
 
       {/* Filter + sort bar */}
-      <div className="card card-body mb-6">
+      <div className="panel mb-6">
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1.2fr_1fr_auto_auto] gap-4 items-end">
           <div>
             <label className="label">{t('home.destination')}</label>
@@ -98,7 +106,7 @@ export default function Search() {
           <div>
             <label className="label">{t('search.maxPrice')}: <span className="text-accent font-semibold">${maxPrice}</span></label>
             <input type="range" min="0" max="10000" step="50" value={maxPrice}
-              onChange={(e) => setMaxPrice(parseInt(e.target.value))} className="w-full accent-indigo-500" />
+              onChange={(e) => setMaxPrice(parseInt(e.target.value))} className="w-full accent-teal-600" />
           </div>
           <div>
             <label className="label">{t('search.sortBy')}</label>
@@ -119,7 +127,7 @@ export default function Search() {
             className={`btn-secondary px-3! py-2.5! shrink-0 ${userCoords ? 'text-emerald-400 border-emerald-500/40!' : ''}`}
           >
             {locating ? <Loader2 size={18} className="animate-spin" /> : <LocateFixed size={18} />}
-            <span className="hidden sm:inline">{t('search.nearMe')}</span>
+            <span>{t('search.nearMe')}</span>
           </button>
 
           <button onClick={clear} className="btn-secondary shrink-0">{t('common.clear')}</button>
@@ -138,16 +146,12 @@ export default function Search() {
       {isLoading && <div className="text-center py-16 text-subtle">{t('search.loading')}</div>}
       {error && <div className="text-center py-16 text-rose-400">{t('search.loadError')}</div>}
 
-      {!isLoading && !error && (
-        <p className="text-sm text-subtle mb-4">{t('search.found', { count: results.length })}</p>
-      )}
-
       {results.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {results.map((hotel: Hotel) => {
             const km = distanceKm(hotel)
             return (
-              <Link key={hotel.id} to={`/hotel/${hotel.id}`} className="card card-hover overflow-hidden group flex flex-col">
+              <Link key={hotel.id} to={`/hotel/${hotel.id}`} className="hotel-card group flex flex-col">
                 <div className="relative h-48 overflow-hidden">
                   <img
                     src={hotelImage(hotel.images?.[0], hotel.id)}
@@ -166,7 +170,7 @@ export default function Search() {
                   <p className="flex items-center gap-1 text-subtle text-sm mt-1 mb-3"><MapPin size={14} /> {hotel.city}</p>
                   <p className="text-muted text-sm line-clamp-2 mb-4">{hotel.description}</p>
                   <div className="mt-auto flex items-baseline justify-between">
-                    <p className="text-accent font-bold text-xl">${hotel.price}<span className="text-subtle font-normal text-sm"> {t('common.perNight')}</span></p>
+                    <p className="price text-xl">${hotel.price}<span className="text-subtle font-normal text-sm"> {t('common.perNight')}</span></p>
                     <span className="text-accent text-sm font-semibold">{t('common.view')} →</span>
                   </div>
                 </div>
@@ -175,7 +179,7 @@ export default function Search() {
           })}
         </div>
       ) : !isLoading ? (
-        <div className="card card-body text-center py-16">
+        <div className="empty-state">
           <p className="text-app font-medium mb-1">{t('search.noResults')}</p>
           <p className="text-subtle text-sm">{t('search.noResultsHint')}</p>
         </div>

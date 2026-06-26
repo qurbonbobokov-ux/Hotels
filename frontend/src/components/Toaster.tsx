@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { CheckCircle2, X, XCircle } from 'lucide-react'
 import { useToastStore } from '../stores/toastStore'
 
 export default function Toaster() {
@@ -15,14 +16,14 @@ export default function Toaster() {
   return (
     <div className="fixed top-20 right-6 z-[100] animate-[fadeIn_0.2s_ease-out]">
       <div
-        className={`flex items-center gap-3 px-5 py-3 rounded-lg shadow-lg text-app ${
-          type === 'success' ? 'bg-green-600' : 'bg-red-600'
+        className={`flex items-center gap-3 px-5 py-3 rounded-lg shadow-lg text-white ${
+          type === 'success' ? 'bg-emerald-700' : 'bg-rose-700'
         }`}
       >
-        <span className="font-semibold">{type === 'success' ? '✓' : '✕'}</span>
+        {type === 'success' ? <CheckCircle2 size={18} /> : <XCircle size={18} />}
         <span>{message}</span>
-        <button onClick={clear} className="ml-2 text-app/80 hover:text-app">
-          ✕
+        <button onClick={clear} className="ml-2 text-white/80 hover:text-white" aria-label="Close">
+          <X size={16} />
         </button>
       </div>
     </div>

@@ -56,10 +56,10 @@ export default function Profile() {
   ]
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-8">
+    <div className="page-shell">
       {/* Header */}
-      <div className="card card-body flex flex-col sm:flex-row sm:items-center gap-5 mb-6">
-        <div className="grid place-items-center w-16 h-16 rounded-2xl bg-linear-to-br from-indigo-500 to-cyan-500 text-white text-xl font-bold shrink-0">
+      <div className="panel flex flex-col sm:flex-row sm:items-center gap-5 mb-6">
+        <div className="grid place-items-center w-16 h-16 rounded-lg text-white text-xl font-bold shrink-0" style={{ background: 'linear-gradient(135deg, var(--accent-strong), var(--brand))' }}>
           {initials || 'U'}
         </div>
         <div className="grow">
@@ -75,8 +75,8 @@ export default function Profile() {
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {stats.map((s) => (
-          <div key={s.label} className="card card-body">
-            <span className="grid place-items-center w-10 h-10 rounded-xl bg-linear-to-br from-indigo-500/20 to-cyan-500/20 text-accent mb-3">
+          <div key={s.label} className="panel">
+            <span className="icon-tile w-10 h-10 mb-3">
               <s.icon size={18} />
             </span>
             <p className="text-2xl font-bold text-app">{s.value}</p>
@@ -89,8 +89,8 @@ export default function Profile() {
       <h2 className="section-title text-2xl! mb-4">{t('profile.quickActions')}</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {links.map((l) => (
-          <Link key={l.to} to={l.to} className="card card-hover card-body flex items-start gap-4">
-            <span className="grid place-items-center w-11 h-11 shrink-0 rounded-xl bg-linear-to-br from-indigo-500/20 to-cyan-500/20 text-accent">
+          <Link key={l.to} to={l.to} className="list-row flex items-start gap-4">
+            <span className="icon-tile w-11 h-11">
               <l.icon size={20} />
             </span>
             <div>
@@ -100,8 +100,8 @@ export default function Profile() {
           </Link>
         ))}
         {user.role === 'admin' && (
-          <Link to="/admin" className="card card-hover card-body flex items-start gap-4">
-            <span className="grid place-items-center w-11 h-11 shrink-0 rounded-xl bg-linear-to-br from-indigo-500/20 to-cyan-500/20 text-accent">
+          <Link to="/admin" className="list-row flex items-start gap-4">
+            <span className="icon-tile w-11 h-11">
               <LayoutDashboard size={20} />
             </span>
             <div>

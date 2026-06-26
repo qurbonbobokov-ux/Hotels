@@ -119,14 +119,14 @@ export default function Booking() {
       <div className="page-header">
         <div className="page-header-inner">
           <h1 className="text-3xl font-bold">{t('booking.title')}</h1>
-          {hotel?.data && <p className="text-indigo-100 mt-1">{hotel.data.name}</p>}
+          {hotel?.data && <p className="text-emerald-50 mt-1">{hotel.data.name}</p>}
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="page-shell">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <form onSubmit={handleSubmit} className="md:col-span-2 space-y-6">
-            <div className="card card-body">
+            <div className="panel">
               <h2 className="section-title mb-4">{t('booking.tripDetails')}</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -183,7 +183,7 @@ export default function Booking() {
               </div>
             </div>
 
-            <div className="card card-body">
+            <div className="panel">
               <h2 className="section-title mb-4">{t('booking.guestInfo')}</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -222,7 +222,7 @@ export default function Booking() {
               </div>
             </div>
 
-            <div className="card card-body">
+            <div className="panel">
               <h2 className="section-title mb-4">{t('booking.specialRequests')}</h2>
               <textarea
                 value={formData.specialRequests}
@@ -239,10 +239,10 @@ export default function Booking() {
           </form>
 
           <div className="md:col-span-1">
-            <div className="card card-body h-fit sticky top-20">
+            <div className="panel h-fit sticky top-20">
               <h3 className="section-title mb-4">{t('booking.summary')}</h3>
 
-              <div className="space-y-2 mb-4 pb-4 border-b">
+              <div className="space-y-2 mb-4 pb-4 border-b border-app">
                 <div className="flex justify-between text-sm text-app">
                   <span>{t('booking.room')}:</span>
                   <span>{selectedRoom ? selectedRoom.type : '-'}</span>
@@ -257,7 +257,7 @@ export default function Booking() {
                 </div>
               </div>
 
-              <div className="surface-2 p-3 rounded mb-4">
+              <div className="surface-2 p-3 rounded-lg mb-4">
                 <div className="flex justify-between items-center">
                   <span className="font-semibold text-app">{t('booking.total')}:</span>
                   <span className="text-2xl font-bold text-accent">${totalPrice}</span>
@@ -265,7 +265,7 @@ export default function Booking() {
               </div>
 
               <label className="flex items-center gap-2 text-xs text-muted">
-                <input type="checkbox" required className="rounded accent-indigo-500" />
+                <input type="checkbox" required className="rounded accent-teal-600" />
                 <span>{t('common.agreeTerms')}</span>
               </label>
             </div>

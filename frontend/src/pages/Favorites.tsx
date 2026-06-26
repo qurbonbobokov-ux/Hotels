@@ -50,12 +50,12 @@ export default function Favorites() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="page-shell">
         {isLoading && <div className="text-center py-12 text-muted">{t('common.loading')}</div>}
         {error && <div className="text-center py-12 text-rose-400">{t('favorites.loadError')}</div>}
 
         {!isLoading && !error && hotels.length === 0 && (
-          <div className="text-center py-16">
+          <div className="empty-state">
             <p className="text-lg text-muted mb-4">{t('favorites.empty')}</p>
             <Link to="/search" className="btn-primary">
               {t('favorites.find')}
@@ -66,7 +66,7 @@ export default function Favorites() {
         {hotels.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {hotels.map((hotel: Hotel) => (
-              <div key={hotel.id} className="card overflow-hidden">
+              <div key={hotel.id} className="hotel-card">
                 <Link to={`/hotel/${hotel.id}`}>
                   <img
                     src={hotelImage(hotel.images?.[0], hotel.id)}
@@ -79,11 +79,11 @@ export default function Favorites() {
                     <Link to={`/hotel/${hotel.id}`} className="text-lg font-bold text-app hover:text-accent">
                       {hotel.name}
                     </Link>
-                    <span className="text-amber-300 text-sm whitespace-nowrap">⭐ {hotel.rating}</span>
+                    <span className="badge-amber whitespace-nowrap">{hotel.rating}</span>
                   </div>
                   <p className="text-subtle text-sm mb-3">{hotel.city}</p>
                   <div className="flex items-center justify-between">
-                    <p className="text-accent font-bold">
+                    <p className="price">
                       ${hotel.price} <span className="text-subtle font-normal text-sm">{t('common.perNight')}</span>
                     </p>
                     <button

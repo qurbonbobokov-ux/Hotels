@@ -9,7 +9,7 @@ function applyTheme(theme: Theme) {
 }
 
 const stored = (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) as Theme | null
-const initialTheme: Theme = stored ?? 'dark'
+const initialTheme: Theme = stored ?? 'light'
 applyTheme(initialTheme)
 
 interface ThemeState {

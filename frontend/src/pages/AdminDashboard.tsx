@@ -132,7 +132,7 @@ export default function AdminDashboard() {
         <div className="page-header-inner flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold">{t('admin.title')}</h1>
-            <p className="text-indigo-100 mt-1">{t('admin.subtitle')}</p>
+            <p className="text-emerald-50 mt-1">{t('admin.subtitle')}</p>
           </div>
           <button onClick={() => setShowForm(!showForm)} className="btn-secondary">
             {showForm ? t('common.cancel') : t('admin.addHotel')}
@@ -140,12 +140,12 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="page-shell">
         {/* Analytics */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {stats.map((s) => (
-            <div key={s.label} className="card card-body">
-              <span className="grid place-items-center w-10 h-10 rounded-xl bg-linear-to-br from-indigo-500/20 to-cyan-500/20 text-accent mb-3">
+            <div key={s.label} className="panel">
+              <span className="icon-tile w-10 h-10 mb-3">
                 <s.icon size={18} />
               </span>
               <p className="text-2xl font-bold text-app">{s.value}</p>
@@ -156,7 +156,7 @@ export default function AdminDashboard() {
 
         {/* Add Hotel Form */}
         {showForm && (
-          <div className="card card-body mb-8">
+          <div className="panel mb-8">
             <h2 className="section-title mb-6">{t('admin.addNewHotel')}</h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -282,7 +282,7 @@ export default function AdminDashboard() {
           {hotels?.data && hotels.data.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {hotels.data.map((hotel: Hotel) => (
-                <div key={hotel.id} className="card overflow-hidden">
+                <div key={hotel.id} className="hotel-card">
                   {/* Image with overlay upload button */}
                   <div className="relative group/img h-40">
                     <img
@@ -315,7 +315,7 @@ export default function AdminDashboard() {
                     </div>
                     <p className="text-subtle text-sm mb-2">{hotel.city} • {hotel.address}</p>
                     <p className="text-muted text-sm line-clamp-2 mb-4">{hotel.description}</p>
-                    <p className="text-accent font-bold text-xl">
+                    <p className="price text-xl">
                       ${hotel.price} <span className="text-subtle font-normal text-sm">{t('common.perNight')}</span>
                     </p>
                   </div>
