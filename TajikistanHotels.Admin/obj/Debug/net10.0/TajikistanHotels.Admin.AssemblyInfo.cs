@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TajikistanHotels.Admin")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+862c495ffbc178fd3a776289042967766848f2b2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+064ab4c8a4fcf537da6f29cced5357f98bb50d9e")]
 [assembly: System.Reflection.AssemblyProductAttribute("TajikistanHotels.Admin")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TajikistanHotels.Admin")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
